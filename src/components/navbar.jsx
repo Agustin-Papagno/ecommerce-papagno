@@ -1,32 +1,16 @@
-import React from 'react';
-import CartWidget from './cartwidget';
-
+import { Link } from 'react-router-dom';
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light px-4">
-      <div className="container-fluid">
-        <a className="navbar-brand" href="#">MiTienda</a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav mx-auto">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Inicio</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Productos</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Contacto</a>
-            </li>
-          </ul>
-          <CartWidget />
-        </div>
-      </div>
+    <nav id='navbar'>
+      <Link to="/">Inicio</Link>
+      <Link to="/categoria/laptops">Laptops</Link>
+      <Link to="/categoria/accesorios">Accesorios</Link>
+      <Link to="/categoria/audio">Audio</Link>
+      <Link to="/categoria/monitores">Monitores</Link>
     </nav>
   );
 };
 
 export default NavBar;
+
+
