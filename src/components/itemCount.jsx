@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
-const ItemCount = () => {
+const ItemCount = ({ onAdd }) => {
   const [cantidad, setCantidad] = useState(1);
 
   return (
     <div>
       <button onClick={() => setCantidad(cantidad - 1)} disabled={cantidad <= 1}>-</button>
-      <span style={{ margin: '0 10px' }}>{cantidad}</span>
+      <span>{cantidad}</span>
       <button onClick={() => setCantidad(cantidad + 1)}>+</button>
-      <button onClick={() => alert(`Agregado ${cantidad} al carrito`)}>Agregar al carrito</button>
+      <button onClick={() => onAdd(cantidad)}>Agregar al carrito</button>
     </div>
   );
 };

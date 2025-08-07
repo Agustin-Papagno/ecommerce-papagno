@@ -1,12 +1,22 @@
 import ItemCount from './ItemCount';
+import { useCart } from '../context/cartContext';
 
-const ItemDetail = ({ id, nombre, precio, categoria }) => {
+const ItemDetail = ({ id, nombre, precio, imagen, descripcion }) => {
+  const { agregarAlCarrito } = useCart();
+
+  const handleAgregar = (cantidad) => {
+    const item = { id, nombre, precio };
+    agregarAlCarrito(item, cantidad);
+    alert('Producto agregado al carrito');
+  };
+
   return (
-    <div id='item-detail'>
+    <div className="item-detail">
       <h2>{nombre}</h2>
-      <p>Categoría: {categoria}</p>
+      <img src={imagen} alt={nombre} />
+      <p>{descripcion}</p>
       <p>Precio: ${precio}</p>
-      <ItemCount />
+      <ItemCount onAdd={handleAgregar} />
     </div>
   );
 };

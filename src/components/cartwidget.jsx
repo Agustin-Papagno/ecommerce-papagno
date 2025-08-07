@@ -1,10 +1,16 @@
-import React from 'react';
+import { useCart } from '../context/cartContext';
+import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
+  const { totalUnidades } = useCart();
+
   return (
-    <div style={{ fontSize: '1.5rem' }}>
-      🛒 <span>3</span>
-    </div>
+    <Link to="/cart">
+      <div className="cart-widget">
+        🛒
+        {totalUnidades() > 0 && <span>{totalUnidades()}</span>}
+      </div>
+    </Link>
   );
 };
 
